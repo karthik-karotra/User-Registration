@@ -54,13 +54,25 @@ public class TestUserRegistration {
 
     @Test
     public void givenPassword_WithAtleastEightCharacters_ShouldReturnTrue() {
-        boolean passwordWithAtleastEightCharacters = UserRegistration.validPasswordLength("Abc123abc");
+        boolean passwordWithAtleastEightCharacters = UserRegistration.validPassword("Abc123abc",UserRegistration.VALID_PASSWORD_WITH_MINIMUM_EIGHT_CHARACTERS_PATTERN);
         Assert.assertTrue(passwordWithAtleastEightCharacters);
     }
 
     @Test
     public void givenPassword_WhenLengthLessThanEightCharacters_ShouldReturnFalse() {
-        boolean passwordWithAtleastEightCharacters = UserRegistration.validPasswordLength("abc123A");
+        boolean passwordWithAtleastEightCharacters = UserRegistration.validPassword("abc123A",UserRegistration.VALID_PASSWORD_WITH_MINIMUM_EIGHT_CHARACTERS_PATTERN);
         Assert.assertFalse(passwordWithAtleastEightCharacters);
+    }
+
+    @Test
+    public void givenPassword_WhenContainsAtleastOneUppercase_ShouldReturnTrue() {
+        boolean passwordWithAtleastOneUppercase =UserRegistration.validPassword("abcABCDd",UserRegistration.VALID_PASSWORD_WITH_ATLEAST_ONE_UPPERCASE);
+        Assert.assertTrue(passwordWithAtleastOneUppercase);
+    }
+
+    @Test
+    public void givenPassword_WhenDoesNotContainsAnyUppercase_ShouldReturnFalse() {
+        boolean passwordWithAtleastOneUppercase =UserRegistration.validPassword("abcABC",UserRegistration.VALID_PASSWORD_WITH_ATLEAST_ONE_UPPERCASE);
+        Assert.assertFalse(passwordWithAtleastOneUppercase);
     }
 }

@@ -5,7 +5,8 @@ public class UserRegistration {
     static String VALID_NAME_PATTERN="^[A-Z]{1}[a-z]{2,}$";
     static String VALID_EMAIL_PATTERN="^([a-zA-Z]{3,}([.|_|+|-]?[a-zA-Z0-9]+)?[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.]?[a-zA-Z]{2,3})?)$";
     static String VALID_PHONE_NO_PATTERN="^([0-9]{1,3}[ ][1-9]{1}[0-9]{9})$";
-    static String VALID_PASSWORD_WITH_MINIMUM_EIGHT_CHARACTERS_PATTERN= "^[a-zA-Z0-9]{8,}";
+    static String VALID_PASSWORD_WITH_MINIMUM_EIGHT_CHARACTERS_PATTERN= "^[a-zA-Z0-9]{8,}$";
+    static String VALID_PASSWORD_WITH_ATLEAST_ONE_UPPERCASE= "^(?=.*[A-Z])[a-zA-Z].{7,}$";
 
     public static boolean validInputName(String name) {
         return name.matches(VALID_NAME_PATTERN);
@@ -23,7 +24,7 @@ public class UserRegistration {
         System.out.println("Welcome to user registration desk");
     }
 
-    public static boolean validPasswordLength(String passwordWithAtleastEightCharacters) {
-        return passwordWithAtleastEightCharacters.matches(VALID_PASSWORD_WITH_MINIMUM_EIGHT_CHARACTERS_PATTERN);
+    public static boolean validPassword(String passwordWithAtleastEightCharacters,String pattern) {
+        return passwordWithAtleastEightCharacters.matches(pattern);
     }
 }
