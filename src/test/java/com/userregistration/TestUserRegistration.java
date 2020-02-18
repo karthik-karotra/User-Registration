@@ -52,5 +52,15 @@ public class TestUserRegistration {
         Assert.assertFalse(phoneNo);
     }
 
+    @Test
+    public void givenPassword_WithAtleastEightCharacters_ShouldReturnTrue() {
+        boolean passwordWithAtleastEightCharacters = UserRegistration.validPasswordLength("Abc123abc");
+        Assert.assertTrue(passwordWithAtleastEightCharacters);
+    }
 
+    @Test
+    public void givenPassword_WhenLengthLessThanEightCharacters_ShouldReturnFalse() {
+        boolean passwordWithAtleastEightCharacters = UserRegistration.validPasswordLength("abc123A");
+        Assert.assertFalse(passwordWithAtleastEightCharacters);
+    }
 }
