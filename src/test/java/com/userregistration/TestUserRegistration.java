@@ -27,4 +27,16 @@ public class TestUserRegistration {
         boolean lastName = UserRegistration.validInputName("ka");
         Assert.assertFalse(lastName);
     }
+
+    @Test
+    public void givenEmailId_WhenValid_ShouldReturnTrue() {
+        boolean email = UserRegistration.validEmailId("karthikpatel54@gmail.com");
+        Assert.assertTrue(email);
+    }
+
+    @Test
+    public void givenEmailId_WhenInvalid_ShouldReturnFalse() {
+        boolean email = UserRegistration.validEmailId("karthikpatel54gmail.com");
+        Assert.assertFalse(email);
+    }
 }
