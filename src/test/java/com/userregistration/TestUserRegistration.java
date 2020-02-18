@@ -15,4 +15,16 @@ public class TestUserRegistration {
         boolean firstName = UserRegistration.validInputName("karthik");
         Assert.assertFalse(firstName);
     }
+
+    @Test
+    public void givenLastName_WhenProper_ShouldReturnTrue() {
+        boolean lastName = UserRegistration.validInputName("Karotra");
+        Assert.assertTrue(lastName);
+    }
+
+    @Test
+    public void givenLastName_WhenImproper_ShouldReturnFalse() {
+        boolean lastName = UserRegistration.validInputName("ka");
+        Assert.assertFalse(lastName);
+    }
 }
