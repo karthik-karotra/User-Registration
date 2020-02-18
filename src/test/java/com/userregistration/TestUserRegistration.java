@@ -75,4 +75,16 @@ public class TestUserRegistration {
         boolean passwordWithAtleastOneUppercase =UserRegistration.validPassword("abcABC",UserRegistration.VALID_PASSWORD_WITH_ATLEAST_ONE_UPPERCASE);
         Assert.assertFalse(passwordWithAtleastOneUppercase);
     }
+
+    @Test
+    public void givenPassword_WhenDoesNotContainsAnyNumericValue_ShouldReturnTrue() {
+        boolean passwordWithAtleastOneNumericValue =UserRegistration.validPassword("abcABC12",UserRegistration.VALID_PASSWORD_WITH_ATLEAST_ONE_NUMERIC_VALUE);
+        Assert.assertTrue(passwordWithAtleastOneNumericValue);
+    }
+
+    @Test
+    public void givenPassword_WhenDoesNotContainsAnyNumericValue_ShouldReturnFalse() {
+        boolean passwordWithAtleastOneNumericValue =UserRegistration.validPassword("abcABC",UserRegistration.VALID_PASSWORD_WITH_ATLEAST_ONE_NUMERIC_VALUE);
+        Assert.assertFalse(passwordWithAtleastOneNumericValue);
+    }
 }

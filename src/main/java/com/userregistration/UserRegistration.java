@@ -6,7 +6,8 @@ public class UserRegistration {
     static String VALID_EMAIL_PATTERN="^([a-zA-Z]{3,}([.|_|+|-]?[a-zA-Z0-9]+)?[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.]?[a-zA-Z]{2,3})?)$";
     static String VALID_PHONE_NO_PATTERN="^([0-9]{1,3}[ ][1-9]{1}[0-9]{9})$";
     static String VALID_PASSWORD_WITH_MINIMUM_EIGHT_CHARACTERS_PATTERN= "^[a-zA-Z0-9]{8,}$";
-    static String VALID_PASSWORD_WITH_ATLEAST_ONE_UPPERCASE= "^(?=.*[A-Z])[a-zA-Z].{7,}$";
+    static String VALID_PASSWORD_WITH_ATLEAST_ONE_UPPERCASE= "^(?=.*[A-Z])[a-zA-Z]{8,}$";
+    static String VALID_PASSWORD_WITH_ATLEAST_ONE_NUMERIC_VALUE="^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$";
 
     public static boolean validInputName(String name) {
         return name.matches(VALID_NAME_PATTERN);
