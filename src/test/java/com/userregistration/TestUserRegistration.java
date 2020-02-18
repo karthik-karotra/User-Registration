@@ -66,25 +66,37 @@ public class TestUserRegistration {
 
     @Test
     public void givenPassword_WhenContainsAtleastOneUppercase_ShouldReturnTrue() {
-        boolean passwordWithAtleastOneUppercase =UserRegistration.validPassword("abcABCDd",UserRegistration.VALID_PASSWORD_WITH_ATLEAST_ONE_UPPERCASE);
+        boolean passwordWithAtleastOneUppercase =UserRegistration.validPassword("abcABCDd",UserRegistration.VALID_PASSWORD_WITH_ATLEAST_ONE_UPPERCASE_PATTERN);
         Assert.assertTrue(passwordWithAtleastOneUppercase);
     }
 
     @Test
     public void givenPassword_WhenDoesNotContainsAnyUppercase_ShouldReturnFalse() {
-        boolean passwordWithAtleastOneUppercase =UserRegistration.validPassword("abcABC",UserRegistration.VALID_PASSWORD_WITH_ATLEAST_ONE_UPPERCASE);
+        boolean passwordWithAtleastOneUppercase =UserRegistration.validPassword("abcABC",UserRegistration.VALID_PASSWORD_WITH_ATLEAST_ONE_UPPERCASE_PATTERN);
         Assert.assertFalse(passwordWithAtleastOneUppercase);
     }
 
     @Test
-    public void givenPassword_WhenDoesNotContainsAnyNumericValue_ShouldReturnTrue() {
-        boolean passwordWithAtleastOneNumericValue =UserRegistration.validPassword("abcABC12",UserRegistration.VALID_PASSWORD_WITH_ATLEAST_ONE_NUMERIC_VALUE);
+    public void givenPassword_WhenContainsAnyNumericValue_ShouldReturnTrue() {
+        boolean passwordWithAtleastOneNumericValue =UserRegistration.validPassword("abcABC12",UserRegistration.VALID_PASSWORD_WITH_ATLEAST_ONE_NUMERIC_PATTERN);
         Assert.assertTrue(passwordWithAtleastOneNumericValue);
     }
 
     @Test
     public void givenPassword_WhenDoesNotContainsAnyNumericValue_ShouldReturnFalse() {
-        boolean passwordWithAtleastOneNumericValue =UserRegistration.validPassword("abcABC",UserRegistration.VALID_PASSWORD_WITH_ATLEAST_ONE_NUMERIC_VALUE);
+        boolean passwordWithAtleastOneNumericValue =UserRegistration.validPassword("abcABC",UserRegistration.VALID_PASSWORD_WITH_ATLEAST_ONE_NUMERIC_PATTERN);
         Assert.assertFalse(passwordWithAtleastOneNumericValue);
+    }
+
+    @Test
+    public void givenPassword_WhenContainsExactlyOneSpecialCharacter_ShouldReturnTrue() {
+        boolean passwordWithExactlyOneSpecialCharacterValue =UserRegistration.validPassword("abc@ABC12",UserRegistration.VALID_PASSWORD_WITH_EXACTLY_ONE_SPECAIL_CHARACTER_PATTERN);
+        Assert.assertTrue(passwordWithExactlyOneSpecialCharacterValue);
+    }
+
+    @Test
+    public void givenPassword_WhenDoesNotContainsExactlyOneSpecialCharacter_ShouldReturnFalse() {
+        boolean passwordWithExactlyOneSpecialCharacterValue =UserRegistration.validPassword("abcABC123@@",UserRegistration.VALID_PASSWORD_WITH_EXACTLY_ONE_SPECAIL_CHARACTER_PATTERN);
+        Assert.assertFalse(passwordWithExactlyOneSpecialCharacterValue);
     }
 }
