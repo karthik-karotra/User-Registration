@@ -39,4 +39,18 @@ public class TestUserRegistration {
         boolean email = UserRegistration.validEmailId("karthikpatel54gmail.com");
         Assert.assertFalse(email);
     }
+
+    @Test
+    public void givenPhoneNo_WhenValid_ShouldReturnTrue() {
+        boolean phoneNo = UserRegistration.validPhoneNo("91 7738997521");
+        Assert.assertTrue(phoneNo);
+    }
+
+    @Test
+    public void givenPhoneNo_WhenInvalid_ShouldReturnFalse() {
+        boolean phoneNo = UserRegistration.validPhoneNo("91 773897521");
+        Assert.assertFalse(phoneNo);
+    }
+
+
 }
